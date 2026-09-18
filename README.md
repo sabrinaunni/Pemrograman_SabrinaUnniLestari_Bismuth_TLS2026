@@ -1,38 +1,32 @@
 # Tugas Logika Pemrograman - Fase 1
 
-Repositori ini berisi penyelesaian logika dan implementasi kode untuk dua buah studi kasus pemrograman. Solusi dirancang menggunakan pendekatan algoritma dasar dan diimplementasikan ke dalam bahasa **C++ murni** dengan pembatasan penggunaan pustaka (*library*) standar.
+Repositori ini dibuat untuk memenuhi tugas Fase 1 yang berisi penyelesaian logika dan implementasi kode dari dua problem yang diberikan. Semua kode program ditulis menggunakan bahasa C++ murni dengan hanya memanfaatkan library `<iostream>` (tanpa library tambahan atau fungsi bawaan).
 
-## 📂 Konten Repositori
-* **`tugas_fase1.pdf`**: Dokumen utama yang berisi 1 Pseudocode, 1 Flowchart, serta penjelasan logika mendalam (minimal 2 paragraf) untuk masing-masing problem.
-* **`problem1_astronaut.cpp`**: Kode solusi C++ untuk masalah eliminasi lingkaran astronot yang dinamis.
-* **`problem2_alien.cpp`**: Kode solusi C++ untuk sistem sandi enkripsi berantai karakter.
+## Isi Repositori
+* **`tugas_fase1.pdf`** - Berisi 1 pseudocode (Problem 1), 1 flowchart (Problem 2), dan penjelasan logika tertulis masing-masing minimal 2 paragraf.
+* **`problem1_astronaut.cpp`** - Kode program C++ untuk simulasi eliminasi astronot lingkaran (The Last Astronaut).
+* **`problem2_alien.cpp`** - Kode program C++ untuk enkripsi pesan berantai (Alien-In-The-Middle).
 
----
-
-## 🚀 Penjelasan Singkat Masalah
+## Ringkasan Solusi
 
 ### Problem 1: The Last Astronaut
-* **Konsep**: Variasi dari *Josephus Problem* (simulasi eliminasi melingkar).
-* **Aturan Khusus**: Nilai langkah hitungan (\(K\)) berubah secara dinamis setelah setiap eliminasi berdasarkan nomor urut astronot yang keluar (genap: \(K = K + 2\); ganjil: \(K = K - 1\); dengan batas minimum \(K \geq 2\)).
-* **Pendekatan Kode**: Menggunakan simulasi perulangan melingkar berbasis *Array Flag* manual tanpa menggunakan fungsi `std::vector`.
+Penyelesaian menggunakan konsep *Josephus Problem* dengan aturan eliminasi dinamis (nilai pergeseran K berubah tergantung nomor astronot yang keluar). Karena tidak boleh memakai `<vector>`, struktur lingkaran disiasati secara manual menggunakan array statis dan sistem penanda (*flag active/inactive*).
 
 ### Problem 2: Alien-In-The-Middle
-* **Konsep**: Enkripsi teks (*Cipher*) berbasis pergeseran karakter kumulatif.
-* **Aturan Khusus**: Setiap huruf digeser maju berdasarkan urutan alfabet (A=1 s.d Z=26) dari huruf asli pada posisi tepat sebelumnya. Huruf pertama tidak mengalami perubahan posisi.
-* **Pendekatan Kode**: Menggunakan manipulasi *C-style Array Character* (`char[]`) dan operasi ASCII manual tanpa menggunakan pustaka `<string>` maupun `<cctype>`.
+Sistem sandi enkripsi di mana setiap huruf bergeser maju berdasarkan nilai alfabet huruf asli tepat sebelum posisi tersebut. Karena keterbatasan penggunaan `<string>` dan `<cctype>`, pemrosesan teks dilakukan manual memakai *C-style array character* (`char[]`) dan manipulasi nilai ASCII.
 
----
+## Cara Menjalankan Program
 
-## 🛠️ Cara Menjalankan Kode C++
+Gunakan compiler C++ seperti `g++` untuk menjalankan kode program.
 
-Pastikan Anda sudah menginstal compiler C++ (seperti `g++`).
+Kompilasi kode melalui terminal:
+```bash
+g++ problem1_astronaut.cpp -o astronaut
+g++ problem2_alien.cpp -o alien
+```
 
-1. **Kompilasi Program:**
-   ```bash
-   g++ problem1_astronaut.cpp -o astronaut
-   g++ problem2_alien.cpp -o alien
-   ```
-
-2. **Jalankan Program:**
-   * **Problem 1:** `./astronaut`
-   * **Problem 2:** `./alien`
+Jalankan executable file:
+```bash
+./astronaut
+./alien
+```
